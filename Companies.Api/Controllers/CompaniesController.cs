@@ -30,7 +30,7 @@ namespace Companies.Api.Controllers
 
         // GET: api/Companies/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Company>> GetCompany(Guid id)
+        public async Task<ActionResult<Company>> GetCompany(int id)
         {
             var company = await _context.Company.FindAsync(id);
 
@@ -45,7 +45,7 @@ namespace Companies.Api.Controllers
         // PUT: api/Companies/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCompany(Guid id, Company company)
+        public async Task<IActionResult> PutCompany(int id, Company company)
         {
             if (id != company.Id)
             {
@@ -100,7 +100,7 @@ namespace Companies.Api.Controllers
             return NoContent();
         }
 
-        private bool CompanyExists(Guid id)
+        private bool CompanyExists(int id)
         {
             return _context.Company.Any(e => e.Id == id);
         }
